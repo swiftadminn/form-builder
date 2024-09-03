@@ -5,6 +5,9 @@ import { LucideView } from "lucide-react";
 import {ReactNode, useEffect, useState} from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { FaWpforms } from "react-icons/fa";
+import { HiCursorClick } from "react-icons/hi";
+import { TbArrowBounce } from "react-icons/tb";
 
 export default function Home() {
     return (
@@ -50,7 +53,7 @@ function StatsCards({ data, loading }: StatsCardProps) {
 
             <StatsCard
                 title="Total submissions"
-                icon={<LucideView className="text-yellow-600" />}
+                icon={<FaWpforms className="text-yellow-600" />}
                 helperText="All time form submissions"
                 value={data?.submisson.toLocaleString() || '0'}
                 loading={loading}
@@ -59,11 +62,20 @@ function StatsCards({ data, loading }: StatsCardProps) {
 
             <StatsCard
                 title="Submissons Rate"
-                icon={<LucideView className="text-green-600" />}
+                icon={<HiCursorClick className="text-green-600" />}
                 helperText="Visits that result  in form submission"
-                value={data?.submissionRate.toLocaleString() || '0'}
+                value={data?.submissionRate.toLocaleString() + "%"  || '0'}
                 loading={loading}
                 className="shadow-md shadow-green-400"
+            />
+
+            <StatsCard
+                title="Bounce Rate"
+                icon={<TbArrowBounce className="text-red-600" />}
+                helperText="Visits that leaves without interacting"
+                value={data?.bounceRate.toLocaleString() + "%" || '0'}
+                loading={loading}
+                className="shadow-md shadow-red-400"
             />
         </div>
 
