@@ -2,18 +2,28 @@
 import Image from "next/image";
 import { GetFromStats } from "@/app/actions/form";
 import { LucideView } from "lucide-react";
-import {ReactNode, useEffect, useState} from "react";
+import React, {ReactNode, useEffect, useState} from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FaWpforms } from "react-icons/fa";
 import { HiCursorClick } from "react-icons/hi";
 import { TbArrowBounce } from "react-icons/tb";
+import {Separator} from "@/components/ui/separator";
+import CreateFormBtn from "@/components/CreateFormBtn";
 
 export default function Home() {
     return (
         <div className={"container pt-4"}>
             <CardStatsWrapper />
+            <Separator className={"my-6"}>
+                <h2 className={"text-4xl font-bold col-span-2"}>Your Forms</h2>
+                <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"}>
+                    <CreateFormBtn/>
+                </div>
+
+            </Separator>
         </div>
+
     );
 }
 

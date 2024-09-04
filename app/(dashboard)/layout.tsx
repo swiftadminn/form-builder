@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import {UserButton} from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/toaster"
 
 const Layout = ({children}:{children: ReactNode}) => {
     return (
@@ -15,8 +16,9 @@ const Layout = ({children}:{children: ReactNode}) => {
 
             </nav>
 
-         <main className={"flex w-full flex-grow"}>
+         <main className={"flex w-full flex-grow justify-center "}>
              {children}
+
          </main>
         </div>
     );
